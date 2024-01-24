@@ -1,0 +1,15 @@
+Assets/KINEMATION/
+Build/
+Library/
+Logs/
+obj/
+UserSettings/
+scr (15).psd
+scr1.png
+scr2.png
+scr3.png
+asset-store-tools-editor.csproj
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+.idea/.idea.MotionWarping/.idea/indexLayout.xml
+.idea/.idea.MotionWarping/.idea/encodings.xml
