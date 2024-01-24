@@ -43,7 +43,8 @@ namespace Demo.Scripts
             {
                 return result;
             }
-            
+
+            float hitHeight = hit.distance;
             Vector3 targetPosition = hit.point;
 
             origin = hit.point;
@@ -71,7 +72,7 @@ namespace Demo.Scripts
                 Rotation = transform.rotation
             };
             
-            result.Asset = hit.distance < softLandingHeight ? softLanding : hardLanding;
+            result.Asset = hitHeight < softLandingHeight ? softLanding : hardLanding;
             result.Points = new[] { targetPoint };
             result.Success = true;
             

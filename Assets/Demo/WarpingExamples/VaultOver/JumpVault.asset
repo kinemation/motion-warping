@@ -3472,14 +3472,14 @@ MonoBehaviour:
   playRateBasis: 1
   phasesAmount: 3
   warpPhases:
-  - tOffset: {x: 0, y: -0.39999998, z: -0.099999905}
+  - tOffset: {x: 0, y: -0.33, z: -0.2}
     rOffset: {x: -0, y: 0, z: 0}
     startTime: 0
     endTime: 0.5169
     minRate: 1
     maxRate: 1
     totalRootMotion: {x: 0.2694963, y: 0.47494572, z: 1.7892754}
-  - tOffset: {x: 0, y: -0.03999996, z: 0.049999952}
+  - tOffset: {x: 0, y: -0.33, z: 0.049999952}
     rOffset: {x: -0, y: 0, z: 0}
     startTime: 0.5169
     endTime: 0.9695
