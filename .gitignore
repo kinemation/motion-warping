@@ -12,5 +12,7 @@ scr3.png
 asset-store-tools-editor.csproj
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
-.idea/.idea.MotionWarping/.idea/indexLayout.xml
-.idea/.idea.MotionWarping/.idea/encodings.xml
+.idea/
+MotionWarping.sln
+MotionWarping.Runtime.csproj
+MotionWarping.Editor.csproj
