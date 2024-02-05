@@ -180,14 +180,6 @@ namespace Demo.Scripts
             {
                 TryClimbing();
             }
-            
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                if (_warpingComponent.Interact(_hangComponent))
-                {
-                    _isHanging = !_isHanging;
-                }
-            }
         }
         
         private void Update()
