@@ -1,7 +1,6 @@
 ﻿// Designed by KINEMATION, 2023
 
 using Kinemation.MotionWarping.Runtime.Core;
-using Kinemation.MotionWarping.Runtime.Examples;
 using Kinemation.MotionWarping.Runtime.Utility;
 using UnityEngine;
 
@@ -9,22 +8,10 @@ namespace Demo.Scripts
 {
     public class DynamicExampleController : MonoBehaviour
     {
-        private MotionWarping _warpingComponent;
-        private MantleComponent _mantleComponent;
-        private VaultComponent _vaultComponent;
-        private RollComponent _rollComponent;
-        private LandComponent _landComponent;
-        private HangComponent _hangComponent;
-        
-        private ExampleCameraController _cameraController;
-        
         [Header("Movement")] 
         [SerializeField] private float speed;
         [SerializeField] private float rotationSmoothing;
         [SerializeField] private float gravity = 9.81f;
-        
-        private CharacterController _characterController;
-        private Animator _animator;
         
         private static int MoveVertical = Animator.StringToHash("MoveVertical");
         private static int MoveHorizontal = Animator.StringToHash("MoveHorizontal");
@@ -35,76 +22,44 @@ namespace Demo.Scripts
         private GameObject _interactionTarget;
         private bool _wasGrounded;
         private bool _slowMoEnabled;
-
-        private bool _isHanging = false;
-
-        private void Start()
+        
+        private Animator _animator;
+        private ExampleCameraController _cameraController;
+        private CharacterController _characterController;
+        
+        private MotionWarping _warpingComponent;
+        private LandComponent _landComponent;
+        
+        protected virtual void Start()
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            _characterController = GetComponent<CharacterController>();
+            _cameraController = GetComponentInChildren<ExampleCameraController>();
             
             _warpingComponent = GetComponent<MotionWarping>();
-            _mantleComponent = GetComponent<MantleComponent>();
-            _vaultComponent = GetComponent<VaultComponent>();
-            _cameraController = GetComponentInChildren<ExampleCameraController>();
-            _rollComponent = GetComponentInChildren<RollComponent>();
-            _landComponent = GetComponentInChildren<LandComponent>();
-            _hangComponent = GetComponentInChildren<HangComponent>();
-            
-            _characterController = GetComponent<CharacterController>();
-            _animator = GetComponentInChildren<Animator>();
+            _landComponent = GetComponent<LandComponent>();
+            _animator = GetComponent<Animator>();
         }
         
-        public void OnWarpStarted()
+        protected virtual void Update()
         {
-            _characterController.enabled = false;
-        }
-
-        public void OnWarpEnded()
-        {
-            if (_isHanging) return;
-            
-            _characterController.enabled = true;
-            _characterController.Move(new Vector3(0f, -1f, 0f));
-
-            Vector3 euler = transform.rotation.eulerAngles;
-            euler.x = euler.z = 0f;
-            transform.rotation = Quaternion.Euler(euler);
-        }
-
-        private void TryClimbing()
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                _warpingComponent.Interact(_vaultComponent);
-                return;
-            }
-
-            _warpingComponent.Interact(_mantleComponent);
-        }
-
-        private void TryInteracting()
-        {
-            if (_warpingComponent.IsActive()) return;
-
-            if (_interactionTarget == null && _warpingComponent.Interact(_rollComponent))
-            {
+                Application.Quit();
                 return;
             }
             
-            _warpingComponent.Interact(_interactionTarget);
-        }
+            UpdateMovement();
 
-        private void OnTriggerEnter(Collider other)
-        {
-            _interactionTarget = other.gameObject;
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                _slowMoEnabled = !_slowMoEnabled;
+                Time.timeScale = _slowMoEnabled ? 0.2f : 1f;
+            }
         }
-
-        private void OnTriggerExit(Collider other)
-        {
-            _interactionTarget = null;
-        }
-
+        
         private void UpdateMovement()
         {
             bool isWarping = _warpingComponent.IsActive();
@@ -130,7 +85,7 @@ namespace Demo.Scripts
             
             Quaternion cameraRotation = _cameraController.UpdateCameraController(isMoving, isWarping);
             
-            if (isWarping || _isHanging) return;
+            if (isWarping) return;
 
             float warpedSpeed = Mathf.Clamp01(_smoothInput.magnitude) * speed;
             input.Normalize();
@@ -165,39 +120,6 @@ namespace Demo.Scripts
             }
 
             _wasGrounded = isGrounded;
-        }
-
-        private void UpdateInteraction()
-        {
-            if (_warpingComponent.IsActive()) return;
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                TryInteracting();
-            }
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                TryClimbing();
-            }
-        }
-        
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Application.Quit();
-                return;
-            }
-            
-            UpdateInteraction();
-            UpdateMovement();
-
-            if (Input.GetKeyDown(KeyCode.N))
-            {
-                _slowMoEnabled = !_slowMoEnabled;
-                Time.timeScale = _slowMoEnabled ? 0.2f : 1f;
-            }
         }
     }
 }

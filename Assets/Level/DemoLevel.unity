@@ -1905,7 +1905,27 @@ PrefabInstance:
     - target: {fileID: 7574170291437633663, guid: 0d6b1eee87126fb4f881ece685b379e4,
         type: 3}
       propertyPath: blendSpeed
-      value: 1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574170291840553815, guid: 0d6b1eee87126fb4f881ece685b379e4,
+        type: 3}
+      propertyPath: onWarpEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1019526326}
+    - target: {fileID: 7574170291840553815, guid: 0d6b1eee87126fb4f881ece685b379e4,
+        type: 3}
+      propertyPath: onWarpStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1019526326}
+    - target: {fileID: 7574170291840553815, guid: 0d6b1eee87126fb4f881ece685b379e4,
+        type: 3}
+      propertyPath: onWarpEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InteractorComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574170291840553815, guid: 0d6b1eee87126fb4f881ece685b379e4,
+        type: 3}
+      propertyPath: onWarpStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InteractorComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7574170291840553821, guid: 0d6b1eee87126fb4f881ece685b379e4,
         type: 3}
@@ -3921,6 +3941,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1019526315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7340218756128467096, guid: 0d6b1eee87126fb4f881ece685b379e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 351742585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019526326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019526315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57844d9e484a8bc4babce311230a2056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1080246163
 GameObject:
   m_ObjectHideFlags: 0
