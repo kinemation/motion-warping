@@ -2959,7 +2959,7 @@ MonoBehaviour:
   playRateBasis: 1.2
   phasesAmount: 1
   warpPhases:
-  - tOffset: {x: 0, y: -0.87, z: -0.75}
+  - tOffset: {x: 0, y: -0.9, z: -0.65}
     rOffset: {x: 12, y: 0, z: 0}
     startTime: 0
     endTime: 0.8392

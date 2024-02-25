@@ -3024,6 +3024,12 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &543883373 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5513231854328377094, guid: 0d6b1eee87126fb4f881ece685b379e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 351742585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &644410938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,6 +3965,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57844d9e484a8bc4babce311230a2056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1019526327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019526315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c56b0df3354ea4a3ab76ef0923d868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentWeight: 0
+  rightHandLockState:
+    controlCurveName: RightHandLock
+    boneReference: {fileID: 0}
+    interpSpeed: 9
+  leftHandLockState:
+    controlCurveName: LeftHandLock
+    boneReference: {fileID: 1563950016}
+    interpSpeed: 9
+  rightFootLockState:
+    controlCurveName: RightFootLock
+    boneReference: {fileID: 543883373}
+    interpSpeed: 9
+  leftFootLockState:
+    controlCurveName: LeftFootLock
+    boneReference: {fileID: 2129060148}
+    interpSpeed: 9
 --- !u!1 &1080246163
 GameObject:
   m_ObjectHideFlags: 0
@@ -5291,9 +5326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce7418bf5c1f1f4b85e97a5470f0bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionAngle: 80
-  offsetAngle: 0
-  distance: 1.5
+  interactionAngle: 57.8
+  offsetAngle: 1
+  distance: 0.5
   motionWarpingAsset: {fileID: 11400000, guid: 07c11833b0c1c044c99d264444efe2a3, type: 2}
   targetAnimName: ExecutionVictim
 --- !u!65 &1547740146
@@ -5406,6 +5441,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548638626}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1563950016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 20394074067826525, guid: 0d6b1eee87126fb4f881ece685b379e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 351742585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1564932819
 GameObject:
   m_ObjectHideFlags: 0
@@ -10448,6 +10489,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125737092}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2129060148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5961220083503636519, guid: 0d6b1eee87126fb4f881ece685b379e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 351742585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2146590881
 GameObject:
   m_ObjectHideFlags: 0
