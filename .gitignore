@@ -12,5 +12,4 @@ Packages/com.unity.asset-store-tools/
 *.csproj
 *.png
 *.sln
-*.meta
 *.psd
