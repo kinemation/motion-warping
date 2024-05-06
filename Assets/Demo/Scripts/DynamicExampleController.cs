@@ -1,4 +1,4 @@
-﻿// Designed by KINEMATION, 2023
+﻿// Designed by KINEMATION, 2024.
 
 using Kinemation.MotionWarping.Runtime.Core;
 using Kinemation.MotionWarping.Runtime.Utility;
@@ -27,7 +27,7 @@ namespace Demo.Scripts
         private ExampleCameraController _cameraController;
         private CharacterController _characterController;
         
-        private MotionWarping _warpingComponent;
+        private MotionWarping _warping;
         private LandComponent _landComponent;
         
         protected virtual void Start()
@@ -38,7 +38,7 @@ namespace Demo.Scripts
             _characterController = GetComponent<CharacterController>();
             _cameraController = GetComponentInChildren<ExampleCameraController>();
             
-            _warpingComponent = GetComponent<MotionWarping>();
+            _warping = GetComponent<MotionWarping>();
             _landComponent = GetComponent<LandComponent>();
             _animator = GetComponent<Animator>();
         }
@@ -62,7 +62,7 @@ namespace Demo.Scripts
         
         private void UpdateMovement()
         {
-            bool isWarping = _warpingComponent.IsActive();
+            bool isWarping = _warping.IsActive();
             Vector2 input = Vector2.zero;
 
             if (!isWarping)
@@ -116,7 +116,7 @@ namespace Demo.Scripts
             
             if (isGrounded != _wasGrounded)
             {
-                _warpingComponent.Interact(_landComponent);
+                _warping.Interact(_landComponent);
             }
 
             _wasGrounded = isGrounded;

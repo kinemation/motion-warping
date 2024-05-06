@@ -26,9 +26,9 @@ namespace Demo.Scripts
         {
             WarpInteractionResult result = new WarpInteractionResult()
             {
-                Asset = null,
-                Points = null,
-                Success = false,
+                asset = null,
+                points = null,
+                success = false,
             };
             
             if (hardLanding == null)
@@ -68,13 +68,13 @@ namespace Demo.Scripts
 
             WarpPoint targetPoint = new WarpPoint()
             {
-                Position = targetPosition,
-                Rotation = transform.rotation
+                position = targetPosition,
+                rotation = transform.rotation
             };
             
-            result.Asset = hitHeight < softLandingHeight ? softLanding : hardLanding;
-            result.Points = new[] { targetPoint };
-            result.Success = true;
+            result.asset = hitHeight < softLandingHeight ? softLanding : hardLanding;
+            result.points = new[] { targetPoint };
+            result.success = true;
             
             return result;
         }

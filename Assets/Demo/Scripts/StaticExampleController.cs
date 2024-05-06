@@ -12,26 +12,26 @@ namespace Demo.Scripts
         public string animName;
         
         private Animator _animator;
-        private MotionWarping _warpingComponent;
+        private MotionWarping _warping;
         private WarpPoint _origin;
         
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _warpingComponent = GetComponent<MotionWarping>();
+            _warping = GetComponent<MotionWarping>();
             
-            _origin.Position = transform.position;
-            _origin.Rotation = transform.rotation;
+            _origin.position = transform.position;
+            _origin.rotation = transform.rotation;
             
             StartWarping();
         }
 
         public void StartWarping()
         {
-            transform.position = _origin.Position;
-            transform.rotation = _origin.Rotation;
+            transform.position = _origin.position;
+            transform.rotation = _origin.rotation;
 
-            if (!_warpingComponent.Interact(warpSource)) return;
+            if (!_warping.Interact(warpSource)) return;
             
             _animator.Rebind();
             _animator.Play(animName);

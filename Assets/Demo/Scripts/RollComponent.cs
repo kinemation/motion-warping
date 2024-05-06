@@ -22,7 +22,7 @@ namespace Demo.Scripts
         public WarpInteractionResult Interact(GameObject instigator)
         {
             WarpInteractionResult result = new WarpInteractionResult();
-            result.Success = false;
+            result.success = false;
 
             if (rollingAsset == null) return result;
 
@@ -37,8 +37,8 @@ namespace Demo.Scripts
             
             WarpPoint point = new WarpPoint()
             {
-                Position = transform.position + transform.forward * rollMaxDistance,
-                Rotation = transform.rotation
+                position = transform.position + transform.forward * rollMaxDistance,
+                rotation = transform.rotation
             };
 
             if (bHit)
@@ -53,13 +53,13 @@ namespace Demo.Scripts
 
                 if (!bHit) return result;
 
-                point.Position = hit.point;
+                point.position = hit.point;
             }
 
-            result.Points = new[] { point };
+            result.points = new[] { point };
             
-            result.Asset = rollingAsset;
-            result.Success = true;
+            result.asset = rollingAsset;
+            result.success = true;
 
             return result;
         }

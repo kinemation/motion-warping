@@ -1,3 +1,5 @@
+// Designed by KINEMATION, 2024.
+
 using Kinemation.MotionWarping.Runtime.Core;
 using Kinemation.MotionWarping.Runtime.Examples;
 using UnityEngine;
@@ -7,7 +9,7 @@ namespace Demo.Scripts
     public class InteractorComponent : MonoBehaviour
     {
         // Motion Warping references.
-        private MotionWarping _warpingComponent;
+        private MotionWarping _warping;
         private MantleComponent _mantleComponent;
         private VaultComponent _vaultComponent;
         private RollComponent _rollComponent;
@@ -27,7 +29,7 @@ namespace Demo.Scripts
 
         private void Start()
         {
-            _warpingComponent = GetComponent<MotionWarping>();
+            _warping = GetComponent<MotionWarping>();
         
             _mantleComponent = GetComponent<MantleComponent>();
             _vaultComponent = GetComponent<VaultComponent>();
@@ -38,28 +40,28 @@ namespace Demo.Scripts
 
         private void TryInteracting()
         {
-            if (_interactionTarget == null && _warpingComponent.Interact(_rollComponent))
+            if (_interactionTarget == null && _warping.Interact(_rollComponent))
             {
                 return;
             }
             
-            _warpingComponent.Interact(_interactionTarget);
+            _warping.Interact(_interactionTarget);
         }
 
         private void TryClimbing()
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                _warpingComponent.Interact(_vaultComponent);
+                _warping.Interact(_vaultComponent);
                 return;
             }
         
-            _warpingComponent.Interact(_mantleComponent);
+            _warping.Interact(_mantleComponent);
         }
 
         private void Update()
         {
-            if (_warpingComponent.IsActive())
+            if (_warping.IsActive())
             {
                 return;
             }
@@ -69,7 +71,7 @@ namespace Demo.Scripts
                 TryInteracting();
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 TryClimbing();
             }

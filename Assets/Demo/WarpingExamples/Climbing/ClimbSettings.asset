@@ -20,6 +20,7 @@ MonoBehaviour:
   minHeight: 0.5
   maxDistance: 3
   characterCapsuleRadius: 0.2
-  characterCapsuleHeight: 1.8
+  characterCapsuleHeight: 1
   sphereEdgeCheckRadius: 0.15
+  maxSurfaceInclineAngle: 30
   forwardOffset: 0.1
